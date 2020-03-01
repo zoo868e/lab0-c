@@ -27,6 +27,8 @@ void q_free(queue_t *q)
 {
     /* TODO: How about freeing the list elements and the strings? */
     list_ele_t *ptr;
+    if (!q)
+        return;
     while (q->head) {
         ptr = q->head;
         q->head = ptr->next;
@@ -128,6 +130,7 @@ bool q_remove_head(queue_t *q, char *sp, size_t bufsize)
         sp[bufsize - 1] = '\0';
     }
     q->head = q->head->next;
+    free(ptr->value);
     free(ptr);
     q->size = q->size - 1;
     return true;
@@ -139,6 +142,8 @@ bool q_remove_head(queue_t *q, char *sp, size_t bufsize)
  */
 int q_size(queue_t *q)
 {
+    if (!q)
+        return 0;
     return q->size;
 }
 
@@ -153,7 +158,7 @@ void q_reverse(queue_t *q)
 {
     /* TODO: You need to write the code for this function */
     /* TODO: Remove the above comment when you are about to implement. */
-    if (!q) {
+    if (!q || q->size <= 1) {
         return;
     }
     list_ele_t *ptr, *pre = NULL, *nxt;
