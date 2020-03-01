@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "strnatcmp.h"
+
 
 #include "harness.h"
 #include "queue.h"
@@ -177,6 +179,57 @@ void q_reverse(queue_t *q)
  */
 void q_sort(queue_t *q)
 {
-    /* TODO: You need to write the code for this function */
-    /* TODO: Remove the above comment when you are about to implement. */
+    if (!q || q->size <= 1) {
+        return;
+    }
+    q->head = merge_sort(q->head);
+    list_ele_t *t = q->head;
+    while (!t->next) {
+        t = t->next;
+    }
+    q->tail = t;
+}
+
+list_ele_t *merge_sort(list_ele_t *start)
+{
+    if (!start || !start->next)
+        return start;
+    list_ele_t *left = start;
+    list_ele_t *right = start->next;
+    list_ele_t *head, *now;
+
+    while (right && right->next) {
+        left = left->next;
+        right = right->next->next;
+    }
+    right = left->next;
+    left->next = NULL;
+    left = merge_sort(start);
+    right = merge_sort(right);
+    if (strnatcmp(left->value, right->value) < 0) {
+        head = left;
+        left = left->next;
+    } else {
+        head = right;
+        right = right->next;
+    }
+    now = head;
+    while (left && right) {
+        if (strnatcmp(left->value, right->value) < 0) {
+            now->next = left;
+            left = left->next;
+        } else {
+            now->next = right;
+            right = right->next;
+        }
+        now = now->next;
+    }
+    if (!left) {
+        now->next = right;
+    }
+    if (!right) {
+        now->next = left;
+    }
+
+    return head;
 }
