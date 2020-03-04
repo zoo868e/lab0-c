@@ -25,7 +25,7 @@ $(GIT_HOOKS):
 	@scripts/install-git-hooks
 	@echo
 
-OBJS := qtest.o report.o console.o harness.o queue.o \
+OBJS := qtest.o report.o console.o harness.o queue.o strnatcmp.o \
         random.o dudect/constant.o dudect/fixture.o dudect/ttest.o
 deps := $(OBJS:%.o=.%.o.d)
 
@@ -42,7 +42,7 @@ check: qtest
 	./$< -v 3 -f traces/trace-eg.cmd
 
 test: qtest scripts/driver.py
-	scripts/driver.py
+	scripts/driver.py -c
 
 valgrind_existence:
 	@which valgrind 2>&1 > /dev/null || (echo "FATAL: valgrind not found"; exit 1)
