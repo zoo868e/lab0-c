@@ -4,6 +4,7 @@ from __future__ import print_function
 import subprocess
 import sys
 import getopt
+import os
 
 
 
@@ -156,7 +157,7 @@ def usage(name):
 
 def run(name, args):
     prog = ""
-    tid = 0
+    tid = int(os.environ['QITEM'])
     vlevel = 1
     levelFixed = False
     autograde = False
