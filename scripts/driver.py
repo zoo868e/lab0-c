@@ -157,12 +157,15 @@ def usage(name):
 
 def run(name, args):
     prog = ""
-    tid = int(os.environ['QITEM'])
+    tid = 0
     vlevel = 1
     levelFixed = False
     autograde = False
     useValgrind = False
     colored = False
+
+    if(os.environ.get('QITEM')):
+        tid = int(os.environ['QITEM'])
 
     optlist, args = getopt.getopt(args, 'hp:t:v:A:c', ['valgrind'])
     for (opt, val) in optlist:
