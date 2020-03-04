@@ -54,10 +54,181 @@ valgrind: valgrind_existence
 	cp qtest $(patched_file)
 	chmod u+x $(patched_file)
 	sed -i "s/alarm/isnan/g" $(patched_file)
-	scripts/driver.py -p $(patched_file) --valgrind
+	scripts/driver.py -c -p $(patched_file) --valgrind
 	@echo
 	@echo "Test with specific case by running command:" 
-	@echo "scripts/driver.py -p $(patched_file) --valgrind -t <tid>"
+	@echo "scripts/driver.py -c -p $(patched_file) --valgrind -v 3 -t <tid>"
+
+
+valgrind_01: valgrind_existence
+	# Explicitly disable sanitizer(s)
+	$(MAKE) clean SANITIZER=0 qtest
+	$(eval patched_file := $(shell mktemp /tmp/qtest.XXXXXX))
+	cp qtest $(patched_file)
+	chmod u+x $(patched_file)
+	sed -i "s/alarm/isnan/g" $(patched_file)
+	scripts/driver.py -c -p $(patched_file) --valgrind -v 3 -t 01
+
+
+valgrind_02: valgrind_existence
+	# Explicitly disable sanitizer(s)
+	$(MAKE) clean SANITIZER=0 qtest
+	$(eval patched_file := $(shell mktemp /tmp/qtest.XXXXXX))
+	cp qtest $(patched_file)
+	chmod u+x $(patched_file)
+	sed -i "s/alarm/isnan/g" $(patched_file)
+	scripts/driver.py -c -p $(patched_file) --valgrind -v 3 -t 02
+
+
+valgrind_03: valgrind_existence
+	# Explicitly disable sanitizer(s)
+	$(MAKE) clean SANITIZER=0 qtest
+	$(eval patched_file := $(shell mktemp /tmp/qtest.XXXXXX))
+	cp qtest $(patched_file)
+	chmod u+x $(patched_file)
+	sed -i "s/alarm/isnan/g" $(patched_file)
+	scripts/driver.py -c -p $(patched_file) --valgrind -v 3 -t 03
+
+
+valgrind_04: valgrind_existence
+	# Explicitly disable sanitizer(s)
+	$(MAKE) clean SANITIZER=0 qtest
+	$(eval patched_file := $(shell mktemp /tmp/qtest.XXXXXX))
+	cp qtest $(patched_file)
+	chmod u+x $(patched_file)
+	sed -i "s/alarm/isnan/g" $(patched_file)
+	scripts/driver.py -c -p $(patched_file) --valgrind -v 3 -t 04
+
+
+valgrind_05: valgrind_existence
+	# Explicitly disable sanitizer(s)
+	$(MAKE) clean SANITIZER=0 qtest
+	$(eval patched_file := $(shell mktemp /tmp/qtest.XXXXXX))
+	cp qtest $(patched_file)
+	chmod u+x $(patched_file)
+	sed -i "s/alarm/isnan/g" $(patched_file)
+	scripts/driver.py -c -p $(patched_file) --valgrind -v 3 -t 05
+
+
+valgrind_06: valgrind_existence
+	# Explicitly disable sanitizer(s)
+	$(MAKE) clean SANITIZER=0 qtest
+	$(eval patched_file := $(shell mktemp /tmp/qtest.XXXXXX))
+	cp qtest $(patched_file)
+	chmod u+x $(patched_file)
+	sed -i "s/alarm/isnan/g" $(patched_file)
+	scripts/driver.py -c -p $(patched_file) --valgrind -v 3 -t 06
+
+
+valgrind_07: valgrind_existence
+	# Explicitly disable sanitizer(s)
+	$(MAKE) clean SANITIZER=0 qtest
+	$(eval patched_file := $(shell mktemp /tmp/qtest.XXXXXX))
+	cp qtest $(patched_file)
+	chmod u+x $(patched_file)
+	sed -i "s/alarm/isnan/g" $(patched_file)
+	scripts/driver.py -c -p $(patched_file) --valgrind -v 3 -t 07
+
+
+valgrind_08: valgrind_existence
+	# Explicitly disable sanitizer(s)
+	$(MAKE) clean SANITIZER=0 qtest
+	$(eval patched_file := $(shell mktemp /tmp/qtest.XXXXXX))
+	cp qtest $(patched_file)
+	chmod u+x $(patched_file)
+	sed -i "s/alarm/isnan/g" $(patched_file)
+	scripts/driver.py -c -p $(patched_file) --valgrind -v 3 -t 08
+
+
+valgrind_09: valgrind_existence
+	# Explicitly disable sanitizer(s)
+	$(MAKE) clean SANITIZER=0 qtest
+	$(eval patched_file := $(shell mktemp /tmp/qtest.XXXXXX))
+	cp qtest $(patched_file)
+	chmod u+x $(patched_file)
+	sed -i "s/alarm/isnan/g" $(patched_file)
+	scripts/driver.py -c -p $(patched_file) --valgrind -v 3 -t 09
+
+
+valgrind_10: valgrind_existence
+	# Explicitly disable sanitizer(s)
+	$(MAKE) clean SANITIZER=0 qtest
+	$(eval patched_file := $(shell mktemp /tmp/qtest.XXXXXX))
+	cp qtest $(patched_file)
+	chmod u+x $(patched_file)
+	sed -i "s/alarm/isnan/g" $(patched_file)
+	scripts/driver.py -c -p $(patched_file) --valgrind -v 3 -t 10
+
+
+valgrind_11: valgrind_existence
+	# Explicitly disable sanitizer(s)
+	$(MAKE) clean SANITIZER=0 qtest
+	$(eval patched_file := $(shell mktemp /tmp/qtest.XXXXXX))
+	cp qtest $(patched_file)
+	chmod u+x $(patched_file)
+	sed -i "s/alarm/isnan/g" $(patched_file)
+	scripts/driver.py -c -p $(patched_file) --valgrind -v 3 -t 11
+
+
+valgrind_12: valgrind_existence
+	# Explicitly disable sanitizer(s)
+	$(MAKE) clean SANITIZER=0 qtest
+	$(eval patched_file := $(shell mktemp /tmp/qtest.XXXXXX))
+	cp qtest $(patched_file)
+	chmod u+x $(patched_file)
+	sed -i "s/alarm/isnan/g" $(patched_file)
+	scripts/driver.py -c -p $(patched_file) --valgrind -v 3 -t 12
+
+
+valgrind_13: valgrind_existence
+	# Explicitly disable sanitizer(s)
+	$(MAKE) clean SANITIZER=0 qtest
+	$(eval patched_file := $(shell mktemp /tmp/qtest.XXXXXX))
+	cp qtest $(patched_file)
+	chmod u+x $(patched_file)
+	sed -i "s/alarm/isnan/g" $(patched_file)
+	scripts/driver.py -c -p $(patched_file) --valgrind -v 3 -t 13
+
+
+valgrind_14: valgrind_existence
+	# Explicitly disable sanitizer(s)
+	$(MAKE) clean SANITIZER=0 qtest
+	$(eval patched_file := $(shell mktemp /tmp/qtest.XXXXXX))
+	cp qtest $(patched_file)
+	chmod u+x $(patched_file)
+	sed -i "s/alarm/isnan/g" $(patched_file)
+	scripts/driver.py -c -p $(patched_file) --valgrind -v 3 -t 14
+
+
+valgrind_15: valgrind_existence
+	# Explicitly disable sanitizer(s)
+	$(MAKE) clean SANITIZER=0 qtest
+	$(eval patched_file := $(shell mktemp /tmp/qtest.XXXXXX))
+	cp qtest $(patched_file)
+	chmod u+x $(patched_file)
+	sed -i "s/alarm/isnan/g" $(patched_file)
+	scripts/driver.py -c -p $(patched_file) --valgrind -v 3 -t 15
+
+
+valgrind_16: valgrind_existence
+	# Explicitly disable sanitizer(s)
+	$(MAKE) clean SANITIZER=0 qtest
+	$(eval patched_file := $(shell mktemp /tmp/qtest.XXXXXX))
+	cp qtest $(patched_file)
+	chmod u+x $(patched_file)
+	sed -i "s/alarm/isnan/g" $(patched_file)
+	scripts/driver.py -c -p $(patched_file) --valgrind -v 3 -t 16
+
+
+valgrind_17: valgrind_existence
+	# Explicitly disable sanitizer(s)
+	$(MAKE) clean SANITIZER=0 qtest
+	$(eval patched_file := $(shell mktemp /tmp/qtest.XXXXXX))
+	cp qtest $(patched_file)
+	chmod u+x $(patched_file)
+	sed -i "s/alarm/isnan/g" $(patched_file)
+	scripts/driver.py -c -p $(patched_file) --valgrind -v 3 -t 17
+
 
 clean:
 	rm -f $(OBJS) $(deps) *~ qtest /tmp/qtest.*
